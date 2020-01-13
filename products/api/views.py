@@ -22,7 +22,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     """
     serializer_class = ProductSerializer
     def get_queryset(self):
-        searchValue = self.request.query_params.get('searchValue', "")
+        """searchValue = self.request.query_params.get('searchValue', "")
         if searchValue:
             searchValue = [int(x.strip()) for x in searchValue.split(',') if x]
             queryset = Product.objects.all()
@@ -32,7 +32,8 @@ class ProductViewSet(viewsets.ModelViewSet):
             searchValue = [int(x.strip()) for x in searchValue.split(',') if x]
             queryset = Product.objects.all()
             queryset = queryset.filter(id__in=searchValue)#.exclude(ingredients__id__in=[3])
-        #beneficialingredient = BeneficialIngredient.objects.filter(effect__id__in=[benefitID])
+        #beneficialingredient = BeneficialIngredient.objects.filter(effect__id__in=[benefitID])"""
+        queryset = Product.objects.all()
         return queryset
 
 
