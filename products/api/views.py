@@ -33,7 +33,6 @@ class ProductViewSet(viewsets.ModelViewSet):
             queryset = Product.objects.all()
             queryset = queryset.filter(id__in=searchValue)#.exclude(ingredients__id__in=[3])
         #beneficialingredient = BeneficialIngredient.objects.filter(effect__id__in=[benefitID])
-        #queryset = Product.objects.all()
         return queryset
 
 
