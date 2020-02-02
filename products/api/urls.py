@@ -14,7 +14,7 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 router.register(r'products', ProductViewSet, basename='products')
-#router.register(r'bi', BeneficialIngredientViewSet, basename='beneficialIngredient')
+router.register(r'bing', BeneficialIngredientViewSet, basename='beneficialIngredient')
 router.register(r'bi', IngredientViewSet, basename='Ingredient')
 router.register(r'effects', EffectViewSet, basename='effects')
 urlpatterns = router.urls
