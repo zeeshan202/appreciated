@@ -26,11 +26,13 @@ class Effect(models.Model):
     SELECT = 'SE'
     EVIDENCE = 'ED'
     ANECDOTAL = 'AD'
+    EFSA = 'EA'
     
     EffectOfType = [
         (SELECT, ''),
         (EVIDENCE, 'Evidence'),
         (ANECDOTAL, 'Anecdotal'),
+        (EFSA, 'EFSA'),
     ]
     
     name = models.CharField(max_length=120)
@@ -44,7 +46,7 @@ class Effect(models.Model):
     score = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    organ = models.ManyToManyField(Organ)
+    organ = models.ManyToManyField(Organ, blank=True)
 
     def __str__(self):
         return self.name
@@ -118,7 +120,7 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField(upload_to='product', blank=True)
-    manufacture = models.ForeignKey(Manufacturer, on_delete=models.CASCADE, default=1)
+    manufacture = models.ForeignKey(Manufacturer, on_delete=models.CASCADE, default=1, related_name='manuf')
     ingredients = models.ManyToManyField(Ingredient)
     form = models.ForeignKey(Form, on_delete=models.CASCADE, default=1)
     
