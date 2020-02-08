@@ -25,6 +25,7 @@ SECRET_KEY = 'rtky6+%3a76@f022kb2#h1_r*r7anb6vjvy9g_2q=d9je1_m=u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Added this to be accepted in react js project call
 ALLOWED_HOSTS = ['*']
 
 
